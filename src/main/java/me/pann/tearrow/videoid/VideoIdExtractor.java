@@ -1,9 +1,7 @@
 package me.pann.tearrow.videoid;
 
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,41 +18,41 @@ public class VideoIdExtractor {
 	 */
 
 	public static List<String> extractVideoIds(String text) {
-		List<URL> urls = extractUrls(text);
+		List<URI> uris = extractUris(text);
 		List<String> videoIds = new ArrayList<>();
 
-		for (URL url : urls) {
-			Optional<String> videoId = parseVideoIdFromUrl(url);
+		for (URI uri : uris) {
+			Optional<String> videoId = parseVideoIdFromUri(uri);
 			videoId.ifPresent(videoIds::add);
 		}
 
 		return videoIds;
 	}
 
-	private static List<URL> extractUrls(String text) {
-		Pattern urlPattern = Pattern.compile("https://[^\\s,，、。!！？)）]+");
-		Matcher matcher = urlPattern.matcher(text);
-		List<URL> urls = new ArrayList<>();
+	private static List<URI> extractUris(String text) {
+		Pattern uriPattern = Pattern.compile("https://[^\\s,，、。!！？)）]+");
+		Matcher matcher = uriPattern.matcher(text);
+		List<URI> uris = new ArrayList<>();
 
 		while (matcher.find()) {
 			try {
-				URL url = new URI(matcher.group()).toURL();
-				urls.add(url);
-			} catch (URISyntaxException | MalformedURLException _) {
-				// ignore invalid URLs
+				URI uri = new URI(matcher.group());
+				uris.add(uri);
+			} catch (URISyntaxException _) {
+				// ignore invalid URIs
 			}
 		}
 
-		return urls;
+		return uris;
 	}
 
-	private static Optional<String> parseVideoIdFromUrl(URL url) {
-		String protocol = url.getProtocol();
-		String host = url.getHost();
-		String path = url.getPath();
-		String query = url.getQuery();
+	private static Optional<String> parseVideoIdFromUri(URI uri) {
+		String scheme = uri.getScheme();
+		String host = uri.getHost();
+		String path = uri.getPath();
+		String query = uri.getQuery();
 
-		if (!protocol.equals("https")) {
+		if (!scheme.equals("https") || host == null) {
 			return Optional.empty();
 		}
 

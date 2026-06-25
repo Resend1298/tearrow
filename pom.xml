@@ -58,6 +58,7 @@
 								</transformer>
 							</transformers>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
+							<finalName>${project.artifactId}</finalName>
 						</configuration>
 					</execution>
 				</executions>

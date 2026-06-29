@@ -1,7 +1,8 @@
 # TeArrow
 
 [![GitHub License](https://img.shields.io/github/license/Resend1298/tearrow)](LICENSE)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Resend1298/tearrow/maven.yml)](https://github.com/Resend1298/tearrow/actions/workflows/maven.yml)
+[![Maven CI](https://img.shields.io/github/actions/workflow/status/Resend1298/tearrow/maven.yml?label=maven)](https://github.com/Resend1298/tearrow/actions/workflows/maven.yml)
+[![Docker](https://img.shields.io/github/actions/workflow/status/Resend1298/tearrow/docker-publish.yml?label=docker)](https://github.com/Resend1298/tearrow/actions/workflows/docker-publish.yml)
 [![wakatime](https://wakatime.com/badge/github/Resend1298/tearrow.svg)](https://wakatime.com/badge/github/Resend1298/tearrow)
 
 A Telegram bot that replies with DeArrow title replacement when YouTube links are sent in a chat.
@@ -10,8 +11,6 @@ A Telegram bot that replies with DeArrow title replacement when YouTube links ar
 
 Due to the nature of this bot, it needs to be able to read all messages in group chats.
 Therefore, it is recommended to host the bot yourself due to privacy concerns.
-Still, you can use [@tearrow_bot](https://t.me/tearrow_bot) for testing purposes or if you trust the developer.
-Do note that the hosted bot doesn't have an SLA and may be offline at times.
 
 ### Self-hosting
 
@@ -24,6 +23,61 @@ After creating the bot, use the command `/mybots` at BotFather,
 select your bot, go to "Bot Settings" -> "Group Privacy",
 and disable "[Privacy Mode](https://core.telegram.org/bots/features#privacy-mode)".
 This is necessary for the bot to read all messages in group chats.
+
+#### Deploy the Bot
+
+Docker Compose is the recommended way to deploy the bot.
+
+First, prepare a Linux server with Docker and Docker Compose installed.
+Then, choose a desired docker image tag, options including:
+
+- `vx.y.z`: a specific version, for example `v1.2.3`. Recommended for production use.
+- `latest`: points to the latest `vx.y.z`.
+- `master`: points to the latest commit on the `master` branch.
+
+After getting the bot token and choosing a docker image tag,
+run one of the following commands to download the `compose.yaml` template file depending on your choice of docker image
+tag:
+
+```shell
+# For a specific version
+mkdir tearrow
+cd tearrow
+# Replace `vx.y.z` with the desired version tag
+wget https://raw.githubusercontent.com/Resend1298/tearrow/refs/tags/vx.y.z/compose.yaml
+```
+
+```shell
+# For the latest release
+mkdir tearrow
+cd tearrow
+# Check the latest release tag on GitHub, then use that tag here
+wget https://raw.githubusercontent.com/Resend1298/tearrow/refs/tags/vx.y.z/compose.yaml
+```
+
+```shell
+# For the latest commit on the master branch
+mkdir tearrow
+cd tearrow
+wget https://raw.githubusercontent.com/Resend1298/tearrow/refs/heads/master/compose.yaml
+```
+
+Then, edit the downloaded `compose.yaml` template file.
+Replace `vx.y.z` with your chosen docker image tag, such as `v1.2.3`, `latest`, or `master`,
+and replace `YOUR_BOT_TOKEN` with your bot token.
+
+Finally, run the following command to start the bot:
+
+```shell
+docker compose up -d
+```
+
+### Use the hosted bot
+
+You can use the hosted bot [@tearrow_bot](https://t.me/tearrow_bot) for testing purposes or if you trust the developer.
+Add it to your group to use it.
+
+Do note that the hosted bot doesn't have an SLA and may be offline at times.
 
 ## License
 

@@ -1,0 +1,7 @@
+services:
+  tearrow:
+    image: ghcr.io/resend1298/tearrow:vx.y.z # change to your desired tag
+    container_name: tearrow
+    environment:
+      TELEGRAM_BOT_TOKEN: "YOUR_BOT_TOKEN" # change to your bot token
+    restart: unless-stopped

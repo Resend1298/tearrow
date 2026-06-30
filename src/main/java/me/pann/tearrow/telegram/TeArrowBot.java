@@ -26,6 +26,9 @@ public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 
 			if (reply.isPresent()) {
 				SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString(), reply.get());
+				// The only link in the reply is the attribution link,
+				// so suppress the preview to avoid cluttering the chat with a link preview.
+				sendMessage.setDisableWebPagePreview(true);
 				try {
 					telegramClient.execute(sendMessage);
 				} catch (org.telegram.telegrambots.meta.exceptions.TelegramApiException e) {

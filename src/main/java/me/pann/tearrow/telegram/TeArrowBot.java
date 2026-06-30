@@ -2,10 +2,14 @@ package me.pann.tearrow.telegram;
 
 import me.pann.tearrow.service.TeArrowService;
 import org.telegram.telegrambots.longpolling.util.LongPollingSingleThreadUpdateConsumer;
+import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 
+import java.util.List;
 import java.util.Optional;
 
 public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
@@ -21,6 +25,10 @@ public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 			
 			Uses SponsorBlock data licensed used under CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/) from https://sponsor.ajay.app/.
 			""";
+	private static final List<BotCommand> COMMANDS = List.of(
+			new BotCommand("start", "Show introduction, usage, and license information"),
+			new BotCommand("help", "Same as /start")
+	);
 
 	public TeArrowBot(TeArrowService teArrowService, TelegramClient telegramClient) {
 		this.teArrowService = teArrowService;
@@ -36,7 +44,7 @@ public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 				SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString(), START_HELP_TEXT);
 				try {
 					telegramClient.execute(sendMessage);
-				} catch (org.telegram.telegrambots.meta.exceptions.TelegramApiException e) {
+				} catch (TelegramApiException e) {
 					e.printStackTrace();
 				}
 				return;
@@ -51,10 +59,14 @@ public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 				sendMessage.setDisableWebPagePreview(true);
 				try {
 					telegramClient.execute(sendMessage);
-				} catch (org.telegram.telegrambots.meta.exceptions.TelegramApiException e) {
+				} catch (TelegramApiException e) {
 					e.printStackTrace();
 				}
 			}
 		}
+	}
+
+	public void registerCommands() throws TelegramApiException {
+		telegramClient.execute(new SetMyCommands(COMMANDS));
 	}
 }

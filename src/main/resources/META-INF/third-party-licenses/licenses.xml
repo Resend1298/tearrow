@@ -123,7 +123,7 @@
       <version>3.41.0</version>
       <licenses>
         <license>
-          <name>The MIT License</name>
+          <name>MIT License</name>
           <url>http://opensource.org/licenses/MIT</url>
           <distribution>repo</distribution>
           <file>the mit license - mit.html</file>

@@ -9,7 +9,7 @@ Lists of 20 third-party dependencies.
      (The Apache Software License, Version 2.0) okio (com.squareup.okio:okio-jvm:3.6.0 - https://github.com/square/okio/)
      (Apache-2.0) Apache Commons IO (commons-io:commons-io:2.16.1 - https://commons.apache.org/proper/commons-io/)
      (Apache-2.0) Apache Commons Lang (org.apache.commons:commons-lang3:3.18.0 - https://commons.apache.org/proper/commons-lang/)
-     (The MIT License) Checker Qual (org.checkerframework:checker-qual:3.41.0 - https://checkerframework.org/)
+     (MIT License) Checker Qual (org.checkerframework:checker-qual:3.41.0 - https://checkerframework.org/)
      (The Apache Software License, Version 2.0) IntelliJ IDEA Annotations (org.jetbrains:annotations:13.0 - http://www.jetbrains.org)
      (The Apache License, Version 2.0) Kotlin Stdlib (org.jetbrains.kotlin:kotlin-stdlib:1.8.21 - https://kotlinlang.org/)
      (The Apache License, Version 2.0) Kotlin Stdlib Common (org.jetbrains.kotlin:kotlin-stdlib-common:1.9.10 - https://kotlinlang.org/)

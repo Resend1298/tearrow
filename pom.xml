@@ -95,6 +95,9 @@
 					<licensesOutputFile>
 						${project.basedir}/src/main/resources/META-INF/third-party-licenses/licenses.xml
 					</licensesOutputFile>
+					<licenseMerges>
+						<licenseMerge>MIT License|The MIT License</licenseMerge>
+					</licenseMerges>
 				</configuration>
 			</plugin>
 		</plugins>

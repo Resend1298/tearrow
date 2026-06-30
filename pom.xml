@@ -98,6 +98,19 @@
 					<licenseMerges>
 						<licenseMerge>MIT License|The MIT License</licenseMerge>
 					</licenseMerges>
+					<useDefaultUrlReplacements>true</useDefaultUrlReplacements>
+					<licenseUrlReplacements>
+						<licenseUrlReplacement>
+							<!--
+								http://opensource.org/licenses/MIT
+								http://www.opensource.org/licenses/mit-license.php
+							-->
+							<regexp>http://(www\.)?opensource\.org/licenses/(MIT|mit-license\.php)$</regexp>
+							<replacement>https://raw.githubusercontent.com/spdx/license-list-data/main/text/MIT.txt
+							</replacement>
+						</licenseUrlReplacement>
+					</licenseUrlReplacements>
+					<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>

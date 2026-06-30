@@ -126,7 +126,7 @@
           <name>MIT License</name>
           <url>http://opensource.org/licenses/MIT</url>
           <distribution>repo</distribution>
-          <file>the mit license - mit.html</file>
+          <file>mit license - mit.txt</file>
         </license>
       </licenses>
     </dependency>
@@ -201,7 +201,7 @@
           <name>Public Domain</name>
           <url>https://github.com/stleary/JSON-java/blob/master/LICENSE</url>
           <distribution>repo</distribution>
-          <file>public domain - license.html</file>
+          <file>public domain - license.txt</file>
         </license>
       </licenses>
     </dependency>
@@ -214,7 +214,7 @@
           <name>MIT License</name>
           <url>http://www.opensource.org/licenses/mit-license.php</url>
           <distribution>repo</distribution>
-          <file>mit license - mit-license.html</file>
+          <file>mit license - mit.txt</file>
         </license>
       </licenses>
     </dependency>
@@ -227,7 +227,7 @@
           <name>MIT License</name>
           <url>http://www.opensource.org/licenses/mit-license.php</url>
           <distribution>repo</distribution>
-          <file>mit license - mit-license.html</file>
+          <file>mit license - mit.txt</file>
         </license>
       </licenses>
     </dependency>
@@ -240,7 +240,7 @@
           <name>MIT License</name>
           <url>http://www.opensource.org/licenses/mit-license.php</url>
           <distribution>repo</distribution>
-          <file>mit license - mit-license.html</file>
+          <file>mit license - mit.txt</file>
         </license>
       </licenses>
     </dependency>
@@ -253,7 +253,7 @@
           <name>MIT License</name>
           <url>http://www.opensource.org/licenses/mit-license.php</url>
           <distribution>repo</distribution>
-          <file>mit license - mit-license.html</file>
+          <file>mit license - mit.txt</file>
         </license>
       </licenses>
     </dependency>

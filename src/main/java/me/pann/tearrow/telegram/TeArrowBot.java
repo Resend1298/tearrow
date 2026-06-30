@@ -11,6 +11,16 @@ import java.util.Optional;
 public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 	private final TeArrowService teArrowService;
 	private final TelegramClient telegramClient;
+	private static final String START_HELP_TEXT = """
+			TeArrow replaces clickbait YouTube titles with DeArrow's crowdsourced alternatives.
+			
+			Send any message containing a YouTube link, and the bot will reply with the DeArrow title when one is available.
+			
+			This bot is free software under AGPL-3.0-or-later.
+			You can find the source code at https://github.com/Resend1298/tearrow
+			
+			Uses SponsorBlock data licensed used under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) from https://sponsor.ajay.app/.
+			""";
 
 	public TeArrowBot(TeArrowService teArrowService, TelegramClient telegramClient) {
 		this.teArrowService = teArrowService;
@@ -21,6 +31,16 @@ public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 	public void consume(Update update) {
 		if (update.hasMessage() && update.getMessage().hasText()) {
 			String messageText = update.getMessage().getText();
+
+			if (messageText.startsWith("/start") || messageText.startsWith("/help")) {
+				SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString(), START_HELP_TEXT);
+				try {
+					telegramClient.execute(sendMessage);
+				} catch (org.telegram.telegrambots.meta.exceptions.TelegramApiException e) {
+					e.printStackTrace();
+				}
+				return;
+			}
 
 			Optional<String> reply = teArrowService.createReply(messageText);
 

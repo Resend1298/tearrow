@@ -27,7 +27,7 @@ public class TeArrowService {
 			for (String title : titles) {
 				replyBuilder.append(title).append("\n");
 			}
-			replyBuilder.setLength(replyBuilder.length() - 1);
+			replyBuilder.append("\n").append("(Using https://sponsor.ajay.app)");
 			return Optional.of(replyBuilder.toString());
 		} else {
 			return Optional.empty();

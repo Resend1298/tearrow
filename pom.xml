@@ -111,6 +111,7 @@
 						</licenseUrlReplacement>
 					</licenseUrlReplacements>
 					<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
+					<errorRemedy>failFast</errorRemedy>
 				</configuration>
 			</plugin>
 		</plugins>

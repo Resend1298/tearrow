@@ -94,3 +94,10 @@ Their licenses are documented at [`src/main/resources/META-INF/third-party-licen
 - `licenses/`: the full text of each license
 
 The same files are bundled into the fat jar and Docker image under `META-INF/third-party-licenses/`.
+
+## Data Attribution
+
+This bot retrieves data from the [DeArrow](https://dearrow.ajay.app/) project through the SponsorBlock API.
+The DeArrow database is a separate work from the dependencies above and is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+> Uses SponsorBlock data licensed used under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) from https://sponsor.ajay.app/.

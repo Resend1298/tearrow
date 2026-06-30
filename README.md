@@ -83,3 +83,14 @@ Do note that the hosted bot doesn't have an SLA and may be offline at times.
 
 This project is licensed under the GNU Affero General Public License v3 or any later version of your choice.
 See the [LICENSE](LICENSE) file for details.
+
+## Third-Party Licenses
+
+This project bundles a number of third-party dependencies.
+Their licenses are documented at [`src/main/resources/META-INF/third-party-licenses`](src/main/resources/META-INF/third-party-licenses):
+
+- `THIRD-PARTY.txt`: the list of dependencies and their licenses
+- `licenses.xml`: a machine-readable manifest mapping each dependency to its license file
+- `licenses/`: the full text of each license
+
+The same files are bundled into the fat jar and Docker image under `META-INF/third-party-licenses/`.

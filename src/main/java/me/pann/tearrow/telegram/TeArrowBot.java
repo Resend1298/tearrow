@@ -17,9 +17,9 @@ public class TeArrowBot implements LongPollingSingleThreadUpdateConsumer {
 			Send any message containing a YouTube link, and the bot will reply with the DeArrow title when one is available.
 			
 			This bot is free software under AGPL-3.0-or-later.
-			You can find the source code at https://github.com/Resend1298/tearrow
+			You can find the source code at https://github.com/Resend1298/tearrow.
 			
-			Uses SponsorBlock data licensed used under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) from https://sponsor.ajay.app/.
+			Uses SponsorBlock data licensed used under CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/) from https://sponsor.ajay.app/.
 			""";
 
 	public TeArrowBot(TeArrowService teArrowService, TelegramClient telegramClient) {

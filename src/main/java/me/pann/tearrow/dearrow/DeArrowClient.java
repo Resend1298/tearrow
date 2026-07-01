@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.Optional;
 
 public class DeArrowClient {
@@ -36,7 +37,7 @@ public class DeArrowClient {
 	}
 
 	private Optional<String> queryTitle(URI uri) {
-		HttpRequest request = HttpRequest.newBuilder().uri(uri).build();
+		HttpRequest request = HttpRequest.newBuilder().uri(uri).timeout(Duration.ofSeconds(10)).build();
 
 		try {
 			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

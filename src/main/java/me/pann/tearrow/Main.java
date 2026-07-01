@@ -11,6 +11,10 @@ public class Main {
 	static void main() {
 		try {
 			String botToken = System.getenv("TELEGRAM_BOT_TOKEN");
+			if (botToken == null || botToken.isBlank()) {
+				IO.println("Please set the TELEGRAM_BOT_TOKEN environment variable with your bot token.");
+				return;
+			}
 
 			TeArrowBot bot = new TeArrowBot(new TeArrowService(new DeArrowClient()), new OkHttpTelegramClient(botToken));
 			bot.registerCommands();

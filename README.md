@@ -51,8 +51,9 @@ wget https://raw.githubusercontent.com/Resend1298/tearrow/refs/tags/vx.y.z/compo
 # For the latest release
 mkdir tearrow
 cd tearrow
-# Check the latest release tag on GitHub, then use that tag here
-wget https://raw.githubusercontent.com/Resend1298/tearrow/refs/tags/vx.y.z/compose.yaml
+# Fetch the latest release tag from GitHub API
+LATEST_TAG=$(curl -s https://api.github.com/repos/Resend1298/tearrow/releases/latest | grep '"tag_name"' | cut -d '"' -f 4)
+wget https://raw.githubusercontent.com/Resend1298/tearrow/refs/tags/${LATEST_TAG}/compose.yaml
 ```
 
 ```shell
